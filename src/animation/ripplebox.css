@@ -1,0 +1,60 @@
+.ripple-box {
+  z-index: 0;
+  background: rgba(0, 0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+/* base ripple style */
+.ripple {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* big ripple fades faster */
+.ripple-big {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  animation: rippleBig 1.5s linear forwards;
+}
+
+/* small ripple appears later and stronger */
+.ripple-small {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  animation: rippleSmall 2s linear forwards;
+}
+
+/* BIG WAVE */
+@keyframes rippleBig {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0.1; /* almost gone */
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* SMALL WAVE AFTER */
+@keyframes rippleSmall {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5; /* appears */
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

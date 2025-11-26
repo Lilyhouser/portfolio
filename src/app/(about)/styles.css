@@ -1,0 +1,29 @@
+.About-header {
+    z-index: -1;
+    font-weight: bold;
+    font-size: 38px;
+    position: absolute;
+    bottom: 40%;
+    right: 80px;
+}
+.About-sub-header {
+    z-index: -1;
+    font-weight: bold;
+    font-size: 28px;
+    position: absolute;
+    bottom: calc(40% - 40px);
+    right: 80px;
+}
+
+.About-contact {
+    z-index: 1;
+    position: absolute;
+    bottom: calc(40% - 120px);
+    right: 80px;
+    display: flex;
+    gap: 80px;
+}
+.About-contact-item {
+    display: flex;
+    gap: 4px;
+}

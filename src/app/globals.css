@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --background: #14281f;
+  --foreground: #dddddd;
+  --text: #121111;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.PageWrapper {
+  padding: 3vw;
+}
+
+.bottom-button {
+  @apply bg-(--text) text-2xl font-bold w-[50vw] rounded-2xl pt-4 pb-4 fixed bottom-6 hover:opacity-90 cursor-pointer;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+/* Sidebar */
+.Sidebar {
+  @apply fixed -right-5 w-fit top-12;
+}
+
+.Sidebar-list {
+  @apply flex flex-col gap-14 text-center;
+}
+
+.Sidebar-item {
+  @apply block capitalize rotate-270 bg-(--foreground) text-(--text) font-bold p-2 pl-3 pr-3 cursor-pointer;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.Sidebar-item-select {
+  @apply bg-(--text) text-(--foreground);
+}
