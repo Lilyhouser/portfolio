@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="Sidebar z-10">
+      <aside className="Sidebar z-100">
         <ul className="Sidebar-list">
           {ROUTER.map((item, index) => (
             <li
@@ -42,9 +42,12 @@ const Sidebar = () => {
               };
             })
           }
-          className="fixed right-16 top-[45vh] z-1 bg-[#111] rounded-full p-2 opacity-50 hover:opacity-100 cursor-pointer hover:duration-200"
+          className="fixed right-16 top-[45vh] z-1"
         >
-          <Link href={ROUTER[currentPage.index + 1].url}>
+          <Link
+            className="block bg-[#111] rounded-full p-2 opacity-50 hover:opacity-100 cursor-pointer hover:duration-200"
+            href={ROUTER[currentPage.index + 1].url}
+          >
             <IoIosArrowRoundForward size={28} />
           </Link>
         </button>
@@ -60,9 +63,12 @@ const Sidebar = () => {
               };
             })
           }
-          className="fixed left-16 top-[45vh] z-1 bg-[#111] rounded-full p-2 opacity-50 hover:opacity-100 cursor-pointer hover:duration-200"
+          className="fixed left-16 top-[45vh] z-1"
         >
-          <Link href={ROUTER[currentPage.index - 1].url}>
+          <Link
+            className="block bg-[#111] rounded-full p-2 opacity-50 hover:opacity-100 cursor-pointer hover:duration-200"
+            href={ROUTER[currentPage.index - 1].url}
+          >
             <IoIosArrowRoundBack size={28} />
           </Link>
         </button>

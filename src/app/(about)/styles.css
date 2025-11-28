@@ -1,7 +1,7 @@
 .About-header {
     z-index: -1;
     font-weight: bold;
-    font-size: 38px;
+    font-size: 3.6vw;
     position: absolute;
     bottom: 40%;
     right: 80px;
@@ -9,7 +9,7 @@
 .About-sub-header {
     z-index: -1;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 2vw;
     position: absolute;
     bottom: calc(40% - 40px);
     right: 80px;

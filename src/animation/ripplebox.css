@@ -18,13 +18,13 @@
 
 /* big ripple fades faster */
 .ripple-big {
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-  animation: rippleBig 1.5s linear forwards;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+  animation: rippleBig 1.3s linear forwards;
 }
 
 /* small ripple appears later and stronger */
 .ripple-small {
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
   animation: rippleSmall 2s linear forwards;
 }
 
