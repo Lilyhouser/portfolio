@@ -1,8 +1,9 @@
-const Bunny = () => {
+const Bunny = ({ w, h }: { w: number; h: number }) => {
   return (
     <svg
-      width="208"
-      height="249"
+      style={{ pointerEvents: "none" }}
+      width={w}
+      height={h}
       viewBox="0 0 208 249"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

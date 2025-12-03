@@ -4,6 +4,7 @@ import "./globals.css";
 import Sidebar from "../components/common/Sidebar";
 import RippleBox from "../animation/RippleBox";
 import StoreProvider from "../context";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <StoreProvider>
           <Sidebar />
           <RippleBox />
+          <Toaster />
           {children}
         </StoreProvider>
       </body>

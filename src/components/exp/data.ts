@@ -6,6 +6,19 @@ import vite from "../../asset/exp/vite.png";
 import express from "../../asset/exp/express.png";
 import axios from "../../asset/exp/axios.png";
 import socket from "../../asset/exp/socket.png";
+import docker from "../../asset/exp/docker.png";
+import gitlab from "../../asset/exp/gitlab.png";
+import github from "../../asset/exp/github.png";
+import git from "../../asset/exp/git.png";
+import mongoose from "../../asset/exp/mongoose.png";
+import nextjs from "../../asset/exp/nextjs.png";
+import nodejs from "../../asset/exp/nodejs.png";
+import postman from "../../asset/exp/postman.png";
+import redux from "../../asset/exp/redux.png";
+import scss from "../../asset/exp/scss.png";
+import figma from "../../asset/exp/figma.png";
+import sqlserver from "../../asset/exp/sqlserver.png";
+import mongo from "../../asset/exp/mongo.png";
 
 export const study = {
   university: {
@@ -56,5 +69,20 @@ export const skills = {
     express,
     axios,
     socket,
+    docker,
+    gitlab,
+    github,
+    git,
+    mongoose,
+    nextjs,
+    nodejs,
+    postman,
+    redux,
+    scss,
+    figma,
+  },
+  databases: {
+    sqlserver,
+    mongo,
   },
 };
