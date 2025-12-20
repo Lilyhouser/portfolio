@@ -1,13 +1,20 @@
 import Carosel from "@/src/components/project/Carosel";
+import Link from "next/link";
 import { FiGithub } from "react-icons/fi";
 
-const page = () => {
+const page = async () => {
   return (
     <div>
       <Carosel />
       <button className="bottom-button">
-        <FiGithub />
-        https://github.com
+        <Link
+          href={"https://github.com/Lilyhouser"}
+          className="flex gap-3 items-center"
+          target="_blank"
+        >
+          <FiGithub />
+          https://github.com/Lilyhouser
+        </Link>
       </button>
     </div>
   );

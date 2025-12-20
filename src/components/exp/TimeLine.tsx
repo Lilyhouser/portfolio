@@ -1,37 +1,20 @@
 import Image from "next/image";
-import { exp, skills, study } from "./data";
+import { exp, skills, study } from "../../data/data";
 import { Dot, SubDot } from "./Dots";
 import Link from "next/link";
-import Bunny from "../common/Bunny";
 
 const TimeLine = () => {
   return (
     <div className="w-1 h-[80vh] bg-black fixed top-[45%] left-[50%] translate-[-50%]">
-      <div className="absolute top-12 left-8 w-[40vw]">
+      <div className="absolute top-4 left-8 w-[40vw]">
         <div className="flex flex-wrap gap-[0.6vw] mb-4">
-          {Object.entries(skills.languages).map(([key, value], idx) => (
+          {[
+            ...Object.entries(skills.languages),
+            ...Object.entries(skills.libraries),
+            ...Object.entries(skills.databases),
+          ].map(([key, value], idx) => (
             <div
-              className="hover:scale-[1.05] hover:duration-200 hover:shadow-[0_0_4px_#ddd] bg-[#00000028] rounded-xl w-[72px] h-[72px] relative"
-              key={idx}
-            >
-              <Image src={value} alt={key} title={key} fill className="p-2" />
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-wrap gap-[0.6vw] mb-4">
-          {Object.entries(skills.libraries).map(([key, value], idx) => (
-            <div
-              className="hover:scale-[1.05] hover:duration-200 hover:shadow-[0_0_4px_#ddd] bg-[#00000028] rounded-xl w-[72px] h-[72px] relative"
-              key={idx}
-            >
-              <Image src={value} alt={key} title={key} fill className="p-2" />
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-wrap gap-[0.6vw]">
-          {Object.entries(skills.databases).map(([key, value], idx) => (
-            <div
-              className="hover:scale-[1.05] hover:duration-200 hover:shadow-[0_0_4px_#ddd] bg-[#00000028] rounded-xl w-[72px] h-[72px] relative"
+              className="hover:scale-[1.05] hover:duration-200 hover:shadow-[0_0_4px_#ddd] bg-[#00000028] rounded-xl w-[60px] h-[60px] relative"
               key={idx}
             >
               <Image src={value} alt={key} title={key} fill className="p-2" />
@@ -75,7 +58,7 @@ const TimeLine = () => {
         </div>
       </SubDot>
       {exp.map((item, idx) => (
-        <Dot key={idx} fromTop={86} time={item.time} position="left">
+        <Dot key={idx} fromTop={70} time={item.time} position="left">
           <div>
             <h2 className="font-bold underline mb-1 text-[15px]">
               {item.company}

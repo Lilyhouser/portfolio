@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, ReactNode, useEffect } from "react";
+import React, { useState, ReactNode } from "react";
 import { ISideBarItem } from "../types";
 import { usePathname } from "next/navigation";
 import { ROUTER } from "../router";
@@ -40,7 +40,7 @@ function StoreProvider({ children }: Children) {
     index: initIndex,
   });
 
-  const handleChangePath = (pageName) => {
+  const handleChangePath = (pageName: string) => {
     setCurrentPage({
       name: pageName,
       index: ROUTER.findIndex((item) => item.name === pageName),

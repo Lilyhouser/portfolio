@@ -12,6 +12,7 @@ export function Dot({
   const isLeft = position === "left";
   const sideTextClass = isLeft ? "left-10" : "right-10";
   const timeClass = isLeft ? "left-0" : "right-0";
+  const alignClass = isLeft ? "justify-start" : "justify-end";
 
   return (
     <div
@@ -20,13 +21,13 @@ export function Dot({
     >
       <div
         className={`
-          content absolute w-[30vw] top-1/2 -translate-y-1/2
-          text-[14px] rounded-2xl p-5 pt-4 pb-4
-          text-(--text) bg-(--foreground)
-          ${sideTextClass}
+          w-[40vw] content absolute top-1/2 -translate-y-1/2 flex
+          ${sideTextClass} ${alignClass}
         `}
       >
-        {children}
+        <div className="w-fit text-[14px] rounded-2xl p-5 pt-4 pb-4 text-(--text) bg-(--foreground)">
+          {children}
+        </div>
 
         <span
           className={`

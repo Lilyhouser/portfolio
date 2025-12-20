@@ -2,13 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import pic1 from "../../asset/project/pic1.png";
-import pic2 from "../../asset/project/pic2.png";
-import pic3 from "../../asset/project/pic3.jpg";
-import pic4 from "../../asset/project/pic4.jpg";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { projects } from "@/src/data/data";
+import Link from "next/link";
 
-const images = [pic1, pic2, pic3, pic4];
+const images = projects.map((item) => item.image);
 
 export default function Carousel() {
   const ref = useRef<HTMLDivElement>(null);
@@ -56,42 +54,66 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-6 z-10 absolute top-[50%] left-[50%] translate-[-50%]">
+    <div className="flex flex-col items-center gap-4 z-10 absolute top-[50%] left-[50%] translate-[-50%]">
       {/* carousel */}
 
+      <Link
+        href={projects[index % images.length].git}
+        className="bg-black px-4 py-2 rounded-xl font-bold"
+      >
+        {projects[index % images.length]?.name || " "}
+      </Link>
       <div
         ref={ref}
-        className="flex gap-8 overflow-x-scroll scroll-smooth snap-x snap-mandatory w-[70vw]"
+        className="project-image flex gap-8 overflow-x-scroll scroll-smooth snap-x snap-mandatory w-[70vw]"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {displayImages.map((img, i) => (
-          <Image
-            key={i}
-            src={img}
-            alt="carousel-img"
-            width={700}
-            height={600}
-            className="rounded-2xl snap-center"
-          />
-        ))}
+        <>
+          {displayImages.map((img, i) => (
+            <Image
+              key={i}
+              src={img}
+              alt="carousel-img"
+              className="rounded-2xl snap-center h-[50vh]"
+            />
+          ))}
+          <div className="tackstack-icons z-10 text-black absolute w-full justify-center">
+            <div className="flex gap-4 bg-[#0000006a] hover:bg-white border hover:duration-200 p-4 rounded-2xl">
+              {projects[index % images.length].techstack.map((item, index) => (
+                <Image
+                  width={40}
+                  height={40}
+                  alt="techstack"
+                  key={index}
+                  src={item}
+                />
+              ))}
+            </div>
+          </div>
+        </>
       </div>
 
       {/* buttons */}
-      <div className="flex gap-4">
-        <button
-          className="px-4 flex gap-2 items-center py-2 bg-(--text) rounded cursor-pointer"
-          onClick={prev}
-        >
-          <IoIosArrowBack />
-          Prev
-        </button>
-        <button
-          className="px-4 flex gap-2 items-center py-2 bg-(--text) rounded cursor-pointer"
-          onClick={next}
-        >
-          Next
-          <IoIosArrowForward />
-        </button>
+      <div className="w-full flex justify-between">
+        <div className="flex text-sm">
+          <button
+            className="px-4 flex gap-2 items-center py-2 opacity-60 rounded cursor-pointer hover:opacity-100 hover:duration-200"
+            onClick={prev}
+          >
+            <IoIosArrowBack />
+            Prev
+          </button>
+          <button
+            className="px-4 flex gap-2 items-center py-2 opacity-60 rounded cursor-pointer hover:opacity-100 hover:duration-200"
+            onClick={next}
+          >
+            Next
+            <IoIosArrowForward />
+          </button>
+        </div>
+        <div className="text-sm opacity-60 mr-4">
+          Project: {(index % images.length) + 1}/{images.length}
+        </div>
       </div>
     </div>
   );
