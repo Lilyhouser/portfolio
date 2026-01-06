@@ -35,9 +35,8 @@ export default function RootLayout({
       >
         <StoreProvider>
           <Sidebar />
-          <RippleBox />
+          <RippleBox>{children}</RippleBox>
           <Toaster />
-          {children}
         </StoreProvider>
       </body>
     </html>

@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, ReactNode } from "react";
-import { ISideBarItem } from "../types";
-import { usePathname } from "next/navigation";
 import { ROUTER } from "../router";
 
 interface PageInfo {
@@ -11,16 +9,16 @@ interface PageInfo {
 
 interface StoreContextType {
   currentPage: PageInfo | undefined;
-  setCurrentPage: React.Dispatch<React.SetStateAction<PageInfo | undefined>>;
   handleChangePath: (pageName: string) => void;
+  handleGoBack: () => void;
+  handleGoNext: () => void;
 }
 
 const defaultContextValue: StoreContextType = {
   currentPage: undefined,
-  setCurrentPage: () => {
-    throw new Error("setCurrentPage must be used within a StoreProvider");
-  },
   handleChangePath: () => {},
+  handleGoBack: () => {},
+  handleGoNext: () => {},
 };
 
 export const StoreContext =
@@ -31,25 +29,33 @@ type Children = {
 };
 
 function StoreProvider({ children }: Children) {
-  const pathname = usePathname().split("/")[1];
-  const initIndex = ROUTER.findIndex(
-    (item: ISideBarItem) => item.name === pathname
-  );
-  const [currentPage, setCurrentPage] = useState<PageInfo | undefined>({
-    name: pathname.length === 0 ? "about" : pathname,
-    index: initIndex,
+  const [currentPage, setCurrentPage] = useState<PageInfo>({
+    name: "about",
+    index: 0,
   });
 
   const handleChangePath = (pageName: string) => {
+    const index = ROUTER.findIndex((item) => item.name === pageName);
+
+    if (index < 0) return;
+
     setCurrentPage({
       name: pageName,
-      index: ROUTER.findIndex((item) => item.name === pageName),
+      index,
     });
+  };
+  const handleGoBack = () => {
+    if (!ROUTER[currentPage?.index - 1]) return;
+    handleChangePath(ROUTER[currentPage?.index - 1].name);
+  };
+  const handleGoNext = () => {
+    if (!ROUTER[currentPage?.index + 1]) return;
+    handleChangePath(ROUTER[currentPage?.index + 1].name);
   };
 
   return (
     <StoreContext.Provider
-      value={{ currentPage, setCurrentPage, handleChangePath }}
+      value={{ currentPage, handleChangePath, handleGoBack, handleGoNext }}
     >
       {children}
     </StoreContext.Provider>

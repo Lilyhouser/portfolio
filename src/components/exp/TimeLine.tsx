@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const TimeLine = () => {
   return (
-    <div className="w-1 h-[80vh] bg-black fixed top-[45%] left-[50%] translate-[-50%]">
+    <div className="w-1 h-[80vh] bg-black fixed left-[50%] top-10">
       <div className="absolute top-4 left-8 w-[40vw]">
         <div className="flex flex-wrap gap-[0.6vw] mb-4">
           {[

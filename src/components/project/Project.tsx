@@ -2,9 +2,9 @@ import Carosel from "@/src/components/project/Carosel";
 import Link from "next/link";
 import { FiGithub } from "react-icons/fi";
 
-const page = async () => {
+const Project = () => {
   return (
-    <div>
+    <div className="absolute w-screen h-screen">
       <Carosel />
       <button className="bottom-button">
         <Link
@@ -20,4 +20,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Project;

@@ -11,7 +11,7 @@ import { ROUTER } from "@/src/router";
 export default function Home() {
   const { handleChangePath } = useContext(StoreContext);
   return (
-    <div className="About PageWrapper">
+    <div className="About PageWrapper absolute w-screen h-screen">
       <BrokenGlass />
       <h1 className="About-header">Hello. My name is Lily</h1>
       <p className="About-sub-header">I&apos;m a web developer</p>
@@ -30,7 +30,7 @@ export default function Home() {
           <span>0833803102</span>
         </div>
       </div>
-      <button className="bottom-button">Know about me?</button>
+      <button className="bottom-button">Press arrow keys to continue!</button>
     </div>
   );
 }

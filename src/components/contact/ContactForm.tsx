@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 import { ImPhone } from "react-icons/im";
 import { IoMailOutline } from "react-icons/io5";
 import { RiFacebookCircleFill } from "react-icons/ri";
+import Bunny from "../common/Bunny";
+import { FaCloud } from "react-icons/fa";
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -61,8 +63,18 @@ const ContactForm = () => {
     emailjs.init(process.env.NEXT_PUBLIC_PUBLIC_KEY);
   }, []);
 
+  useEffect(() => {
+    document.querySelectorAll(".cloud").forEach((element) => {
+      element.addEventListener("animationend", () => element.remove());
+    });
+  }, []);
+
+  useEffect(() => {
+    setInterval(() => {}, 500);
+  }, []);
+
   return (
-    <div className="z-10 absolute flex flex-col justify-end gap-[2vh] pt-[4vh] items-center left-[50%] translate-x-[-50%] bottom-0">
+    <div className="z-10 overflow-hidden absolute w-screen flex gap-[2vh] pt-[4vh] flex-col h-screen items-center justify-end">
       <div className="text-[18px] flex gap-4 items-center">
         <ImPhone className="text-[20px]" />
         <span>0833803102</span>
@@ -114,6 +126,20 @@ const ContactForm = () => {
           Send me
         </button>
       </form>
+
+      <div className="fixed bottom-10 left-10">
+        <Bunny w={240} h={240} />
+      </div>
+      <div className="fixed flex items-baseline bottom-10 right-10 scale-x-[-1]">
+        <Bunny w={120} h={120} />
+      </div>
+
+      <FaCloud className="cloud first-cloud" size={350} />
+      <FaCloud className="cloud second-cloud" size={250} />
+      <FaCloud className="cloud third-cloud" size={150} />
+      <FaCloud className="cloud forth-cloud" size={100} />
+      <FaCloud className="cloud five-cloud" size={80} />
+      <FaCloud className="cloud six-cloud" size={320} />
     </div>
   );
 };

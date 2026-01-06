@@ -44,7 +44,7 @@ body {
 
 .tackstack-icons {
   display: none;
-  animation: appear-top .2s linear forwards;
+  animation: appear-top 0.2s linear forwards;
 }
 .project-image:hover .tackstack-icons {
   display: flex;
@@ -54,8 +54,80 @@ body {
   from {
     opacity: 0;
     bottom: 0;
-  } to {
+  }
+  to {
     opacity: 1;
     bottom: 70px;
+  }
+}
+
+.cloud {
+  z-index: -20;
+  position: fixed;
+  opacity: 0.3;
+  animation: cloud-move forwards linear 100s;
+}
+
+.first-cloud {
+  top: 0;
+  left: 20%;
+  animation-duration: 140s;
+}
+.second-cloud {
+  top: 20px;
+  left: 50%;
+  animation-duration: 120s;
+}
+.third-cloud {
+  left: 0;
+  top: 10px;
+  animation-duration: 100s;
+}
+.forth-cloud {
+  left: 70%;
+  top: 0;
+  animation-duration: 60s;
+}
+.five-cloud {
+  left: -30%;
+  top: 100px;
+  animation-duration: 130s;
+  animation-delay: 13s;
+}
+.six-cloud {
+  left: -40%;
+  top: 30px;
+  animation-duration: 90s;
+  animation-delay: 10s;
+}
+
+@keyframes cloud-move {
+  0% {
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.anim-slide-disappear {
+  animation: slide-disappear linear .3s forwards;
+}
+.anim-slide-appear {
+  animation: slide-appear linear .3s forwards;
+}
+
+@keyframes slide-disappear {
+  from {
+    left: 0;
+  } to {
+    left: 100%;
+  }
+}
+
+@keyframes slide-appear {
+  from {
+    right: 100%;
+  } to {
+    right: 0;
   }
 }
