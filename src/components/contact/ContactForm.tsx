@@ -1,7 +1,7 @@
 "use client";
 import emailjs from "@emailjs/browser";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { ImPhone } from "react-icons/im";
 import { IoMailOutline } from "react-icons/io5";
@@ -10,6 +10,12 @@ import Bunny from "../common/Bunny";
 import { FaCloud } from "react-icons/fa";
 
 const ContactForm = () => {
+  const [clouds, setClouds] = useState<ReactElement[]>([
+    <FaCloud key={0} className="cloud first-cloud" size={350} />,
+    <FaCloud key={1} className="cloud second-cloud" size={250} />,
+    <FaCloud key={2} className="cloud third-cloud" size={150} />,
+    <FaCloud key={3} className="cloud forth-cloud" size={100} />,
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
@@ -70,7 +76,23 @@ const ContactForm = () => {
   }, []);
 
   useEffect(() => {
-    setInterval(() => {}, 500);
+    const interval = setInterval(() => {
+      const left = "-350px";
+      const top = `${40 * Math.random()}%`;
+      const animationDuration = `${70 + 70 * Math.random()}s`;
+      const newCloud = (
+        <FaCloud
+          style={{ left, top, animationDuration }}
+          key={Date.now()}
+          className="cloud first-cloud"
+          size={100 + 250 * Math.random()}
+        />
+      );
+      setClouds((prev) => [...prev, newCloud]);
+    }, 12000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (
@@ -134,12 +156,7 @@ const ContactForm = () => {
         <Bunny w={120} h={120} />
       </div>
 
-      <FaCloud className="cloud first-cloud" size={350} />
-      <FaCloud className="cloud second-cloud" size={250} />
-      <FaCloud className="cloud third-cloud" size={150} />
-      <FaCloud className="cloud forth-cloud" size={100} />
-      <FaCloud className="cloud five-cloud" size={80} />
-      <FaCloud className="cloud six-cloud" size={320} />
+      {clouds.map((item) => item)}
     </div>
   );
 };
