@@ -21,6 +21,7 @@ import sqlserver from "../asset/exp/sqlserver.png";
 import mongo from "../asset/exp/mongo.png";
 import warehouse from "../asset/project/warehouse.png";
 import soulsync from "../asset/project/soulsync.png";
+import cinema from "../asset/project/cinema.png";
 
 export const study = {
   university: {
@@ -92,6 +93,15 @@ export const skills = {
 };
 
 export const projects = [
+  {
+    name: "Cinema Management System",
+    image: cinema,
+    review:
+      "A manage web which manages activities of customer, admin, manager and staff in a cinema",
+    git: "https://github.com/orgs/CinemaManagement/repositories",
+    role: "Fullstack developer",
+    techstack: [js, react, express, figma, socket, tailwind, axios],
+  },
   {
     name: "Warehouse Management System",
     image: warehouse,
