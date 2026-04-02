@@ -58,7 +58,7 @@ const TimeLine = () => {
         </div>
       </SubDot>
       {exp.map((item, idx) => (
-        <Dot key={idx} fromTop={70} time={item.time} position="left">
+        <Dot key={idx} fromTop={76} time={item.time} position="left">
           <div>
             <h2 className="font-bold underline mb-1 text-[15px]">
               {item.company}

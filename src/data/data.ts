@@ -23,7 +23,7 @@ import warehouse from "../asset/project/warehouse.png";
 import soulsync from "../asset/project/soulsync.png";
 import cinema from "../asset/project/cinema.png";
 import lovealarm from "../asset/project/lovealarm.png";
-import firebase from "../asset/project/firebase.png";
+import firebase from "../asset/exp/firebase.png";
 
 export const study = {
   university: {
@@ -91,11 +91,20 @@ export const skills = {
   databases: {
     sqlserver,
     mongo,
-    firebase
+    firebase,
   },
 };
 
 export const projects = [
+  {
+    name: "Warehouse Management System",
+    image: warehouse,
+    review:
+      "A manage web which manages goods receiving/dispatching, and warehouse inventory",
+    git: "https://github.com/orgs/swp-wms/repositories",
+    role: "Fullstack developer",
+    techstack: [js, react, express, figma, socket, tailwind, axios],
+  },
   {
     name: "Love Alarm",
     image: lovealarm,
@@ -103,7 +112,17 @@ export const projects = [
       "A mobile app which detects nearby users, which allows users to send love requests to others",
     git: "https://github.com/orgs/beethaaa/repositories",
     role: "Fullstack developer",
-    techstack: [js, react, express, figma, socket, tailwind, axios, firebase, mongo],
+    techstack: [
+      js,
+      react,
+      express,
+      figma,
+      socket,
+      tailwind,
+      axios,
+      firebase,
+      mongo,
+    ],
   },
   {
     name: "Cinema Management System",
@@ -111,15 +130,6 @@ export const projects = [
     review:
       "A manage web which manages activities of customer, admin, manager and staff in a cinema",
     git: "https://github.com/orgs/CinemaManagement/repositories",
-    role: "Fullstack developer",
-    techstack: [js, react, express, figma, socket, tailwind, axios],
-  },
-  {
-    name: "Warehouse Management System",
-    image: warehouse,
-    review:
-      "A manage web which manages goods receiving/dispatching, and warehouse inventory",
-    git: "https://github.com/orgs/swp-wms/repositories",
     role: "Fullstack developer",
     techstack: [js, react, express, figma, socket, tailwind, axios],
   },
