@@ -22,6 +22,8 @@ import mongo from "../asset/exp/mongo.png";
 import warehouse from "../asset/project/warehouse.png";
 import soulsync from "../asset/project/soulsync.png";
 import cinema from "../asset/project/cinema.png";
+import lovealarm from "../asset/project/lovealarm.png";
+import firebase from "../asset/project/firebase.png";
 
 export const study = {
   university: {
@@ -89,10 +91,20 @@ export const skills = {
   databases: {
     sqlserver,
     mongo,
+    firebase
   },
 };
 
 export const projects = [
+  {
+    name: "Love Alarm",
+    image: lovealarm,
+    review:
+      "A mobile app which detects nearby users, which allows users to send love requests to others",
+    git: "https://github.com/orgs/beethaaa/repositories",
+    role: "Fullstack developer",
+    techstack: [js, react, express, figma, socket, tailwind, axios, firebase, mongo],
+  },
   {
     name: "Cinema Management System",
     image: cinema,
